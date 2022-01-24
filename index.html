@@ -20,7 +20,7 @@
 			});
 
 			/*
-			 * This example function triggers a screenpop from Dynamics after 9 seconds.
+			 * This example function triggers a screenpop from Dynamics after an interval of 60 seconds.
 			 */var timerID = setInterval(function triggerScreenpop() {
         			amcTechnologydavinciApi.screenpop(
             		amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
@@ -30,21 +30,6 @@
 					}, 60 * 1000);
 
 				clearInterval(timerID);	
-			/*
-			* This example function demonstrate a blind transfer using clickToDial. 
-			*/	
-			function triggerClickToDial() { 
-				const phoneNum = classicEntity.number;
-        		const action = api.CONTEXTUAL_OPERATION_TYPE.BlindTransfer;
-        		const interactionID = this.interactionID;
-        		const numberToDial = this.clickToDialFormatPhoneNumber(phoneNum);
-				amcTechnologydavinciApi.onClickToDial(
-				numberToDial,
-				this.formatCrmResults(objectForFormatCrmResults),
-				amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
-				action,
-				interactionID);
-			}
 			
 		</script>
     </head>
