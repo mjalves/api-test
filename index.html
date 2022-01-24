@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <!-- import js davinci api 
+          https://apidocs.contactcanvas.com/index.html
+          https://apidocs.contactcanvas.com/modules/davinci_api.html
+          https://www.npmjs.com/package/@amc-technology/davinci-api?activeTab=versions
+        -->
+        <script src="davinci-api-1-0-46.js"></script> 
+        <title>App</title>
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script>
+			var logger = new amcTechnologydavinciApi.Logger('SampleApp'); // initializes logger function
+
+			/*
+			 * This function initializes the app
+			 */
+			amcTechnologydavinciApi.initializeComplete(logger).then(function (config) {
+				amcTechnologydavinciApi.setAppHeight(0);
+			});
+
+			/*
+			 * This example function triggers a screenpop from Dynamics after 9 seconds.
+			 */var timerID = setInterval(function triggerScreenpop() {
+        			amcTechnologydavinciApi.screenpop(
+            		amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
+            		amcTechnologydavinciApi.INTERACTION_DIRECTION_TYPES.Inbound,
+            		"f485e06f-755f-ec11-8f8f-0022483005b6",
+            		"account");
+					}, 60 * 1000);
+
+				clearInterval(timerID);	
+			/*
+			* This example function demonstrate a blind transfer using clickToDial. 
+			*/	
+			function triggerClickToDial() { 
+				const phoneNum = classicEntity.number;
+        		const action = api.CONTEXTUAL_OPERATION_TYPE.BlindTransfer;
+        		const interactionID = this.interactionID;
+        		const numberToDial = this.clickToDialFormatPhoneNumber(phoneNum);
+				amcTechnologydavinciApi.onClickToDial(
+				numberToDial,
+				this.formatCrmResults(objectForFormatCrmResults),
+				amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
+				action,
+				interactionID);
+			}
+			
+		</script>
+    </head>
+    <body style="width: 100%; height: 100%; margin: 0px; border: 0px;">
+        <!-- this header just confirms that the page is online -->
+        <div>
+             <p> Sample DaVinci App</p> 
+        </div>
+    </body>
+</html>
