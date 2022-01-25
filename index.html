@@ -22,20 +22,16 @@
 			/*
 			 * This example function triggers a screenpop from Dynamics after an interval of 60 seconds.
 			 */
-			function triggerScreenpop() {
-        			amcTechnologydavinciApi.screenpop(
-            		amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
-            		amcTechnologydavinciApi.INTERACTION_DIRECTION_TYPES.Inbound,
-            		"f485e06f-755f-ec11-8f8f-0022483005b6",
-            		"account");
-
-				clearInterval(timerID);	
-			}
+			
 			const name = document.querySelector(".name");
 			const btn = document.querySelector("button");
 
       		btn.addEventListener("click", function () {
-				triggerScreenpop();
+				amcTechnologydavinciApi.screenpop(
+            		amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
+            		amcTechnologydavinciApi.INTERACTION_DIRECTION_TYPES.Inbound,
+            		"f485e06f-755f-ec11-8f8f-0022483005b6",
+            		"account");
  			});	
 			
 		</script>
@@ -47,7 +43,7 @@
         </div>
 
 		<div>
-			<p class="name">Screenpop</p>
+			<p class="name"></p>
 			<button>ScreenPop</button>
 	   </div>
 
