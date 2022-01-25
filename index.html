@@ -23,17 +23,14 @@
 			 * This example function triggers a screenpop from Dynamics after an interval of 60 seconds.
 			 */
 			
-			const name = document.querySelector(".name");
-			const btn = document.querySelector("button");
-
-      		btn.addEventListener("click", function () {
+			function onScreenpop(){
 				amcTechnologydavinciApi.screenpop(
-            		amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
-            		amcTechnologydavinciApi.INTERACTION_DIRECTION_TYPES.Inbound,
-            		"f485e06f-755f-ec11-8f8f-0022483005b6",
-            		"account");
- 			});	
-			
+            	amcTechnologydavinciApi.CHANNEL_TYPES.Telephony,
+            	amcTechnologydavinciApi.INTERACTION_DIRECTION_TYPES.Inbound,
+            	"f485e06f-755f-ec11-8f8f-0022483005b6",
+            	"account");
+			 }
+	
 		</script>
     </head>
     <body style="width: 100%; height: 100%; margin: 0px; border: 0px;">
@@ -42,10 +39,6 @@
              <p> Sample DaVinci App</p> 
         </div>
 
-		<div>
-			<p class="name"></p>
-			<button>ScreenPop</button>
-	   </div>
-
+		<button type="button" onclick="onScreenpop()">ScreenPop</button>
     </body>
 </html>
