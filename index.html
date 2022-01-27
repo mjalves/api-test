@@ -20,12 +20,12 @@
 			});
 
 			function onBlindTransfer(){
+				numberToDial = '18044198618'
 				const action = api.CONTEXTUAL_OPERATION_TYPE.BlindTransfer;
-        		const intID = this.interactionID;
-        		const numberToDial = this.clickToDialFormatPhoneNumber(phoneNum);
+        		const intID = 515.00225005151643330365;
         		api.clickToDial(
           			numberToDial,
-          			this.formatCrmResults(objectForFormatCrmResults),
+          			null,
           			null,
           			action,
           			intID
