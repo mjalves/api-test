@@ -16,9 +16,21 @@
 			 * This function initializes the app
 			 */
 			amcTechnologydavinciApi.initializeComplete(logger).then(function (config) {
-				amcTechnologydavinciApi.setAppHeight(40);
+				amcTechnologydavinciApi.setAppHeight(30);
 			});
 
+			function onBlindTransfer(){
+				const action = api.CONTEXTUAL_OPERATION_TYPE.BlindTransfer;
+        		const intID = this.interactionID;
+        		const numberToDial = this.clickToDialFormatPhoneNumber(phoneNum);
+        		api.clickToDial(
+          			numberToDial,
+          			this.formatCrmResults(objectForFormatCrmResults),
+          			null,
+          			action,
+          			intID
+        		);
+			}
 			/*
 			 * This example function triggers a screenpop from Dynamics after an interval of 60 seconds.
 			 */
@@ -38,8 +50,8 @@
         <div>
              <p> Sample DaVinci App</p> 
         </div>
-
 		<button type="button" class="button" onclick="onScreenpop()">ScreenPop</button>
+		<button type="button" class="button" onclick="onBlindTransfer()">BlindTransfer</button>
     </body>
 	<style>
 		.button {
