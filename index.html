@@ -19,20 +19,24 @@
 				amcTechnologydavinciApi.setAppHeight(30);
 			});
 
+			/*
+			 * This example function triggers a blindTransfer of an ongoing call.
+			 */
 			function onBlindTransfer(){
-				numberToDial = '18044198618'
+				numberToDial = '12223331111' //phone number of this format.
 				const action = amcTechnologydavinciApi.CONTEXTUAL_OPERATION_TYPE.BlindTransfer;
-        		const intID = '515.00225005151643330365';
+        		const interactionID = '515.00225005151643330365'; //This must be the current interactionID of the ongoing call.
         		amcTechnologydavinciApi.clickToDial(
           			numberToDial,
           			null,
           			null,
           			action,
-          			intID
+          			interactionID
         		);
 			}
+
 			/*
-			 * This example function triggers a screenpop from Dynamics after an interval of 60 seconds.
+			 * This example function triggers a screenpop from Dynamics.
 			 */
 			
 			function onScreenpop(){
